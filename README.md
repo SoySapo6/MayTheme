@@ -42,6 +42,8 @@ cd /var/www/ctrlpanel/themes
 git clone https://github.com/SoySapo6/MayTheme.git
 ```
 
+> Si deseas actualizar el tema ejecuta ```cd /var/www/ctrlpanel/themes/MayTheme; git pull```
+
 ### 2. Actualizar la Caché del Sistema
 
 Es necesario limpiar la caché de vistas de Laravel para que el sistema reconozca la nueva estructura de directorios.
@@ -60,7 +62,7 @@ php artisan view:clear
 3.  Bajas hasta encontrarte con "Theme", seleccione **MayTheme**.
 4.  Guarde los cambios.
 
-> **Nota:** Se recomienda forzar una recarga del navegador (Ctrl + F5) tras la activación para purgar estilos CSS antiguos almacenados en caché.
+> **Nota:** Se recomienda forzar una recarga del navegador (Ctrl + F5) tras la activación para purgar estilos CSS antiguos almacenados en caché, Ademas que tengo pensado hacer una actualizacion navidadeña.
 
 ## Créditos y Atribución
 
