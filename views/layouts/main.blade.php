@@ -579,7 +579,7 @@
   })
   @endif
 </script>
-<script>document.addEventListener("DOMContentLoaded",()=>{const f=document.querySelector(".main-footer");if(f)f.innerHTML="<div class=\"may-footer-content\">Powered by CtrlPanel <span>|</span> <a href=\"https://github.com/SoySapo6\" target=\"_blank\" class=\"may-link\"><div class=\"may-wave\"></div>SoyMaycol</a></div>";document.querySelectorAll("a").forEach(a=>{if(a.textContent.includes("CtrlPanel")||a.href.includes("sponsors")){a.innerHTML="<i class=\"fab fa-github\"></i> Sigueme en WhatsApp";a.href="https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R";a.target="_blank"}})});</script>
+<script>document.addEventListener("DOMContentLoaded",()=>{const f=document.querySelector(".main-footer");if(f)f.innerHTML="<div class=\"may-footer-content\">Powered by CtrlPanelᴹᵃʸᵀʰᵉᵐᵉ <span>|</span> <a href=\"https://github.com/SoySapo6\" target=\"_blank\" class=\"may-link\"><div class=\"may-wave\"></div>SoyMaycol</a></div>";document.querySelectorAll("a").forEach(a=>{if(a.textContent.includes("CtrlPanel")||a.href.includes("sponsors")){a.innerHTML="<i class=\"fab fa-whatsapp\"></i> Sigueme en WhatsApp";a.href="https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R";a.target="_blank"}})});</script>
 </body>
 
 </html>
