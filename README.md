@@ -40,11 +40,12 @@ Acceda al directorio de temas de su instalación CtrlPanel y clone los archivos 
 ```bash
 cd /var/www/ctrlpanel/themes
 git clone https://github.com/SoySapo6/MayTheme.git
+mv /var/www/ctrlpanel/themes/MayTheme/MayTheme /var/www/ctrlpanel/public/themes
 ```
 
 > Si deseas actualizar el tema ejecuta ```cd /var/www/ctrlpanel/themes/MayTheme; git pull```
 
-### 2. Actualizar la Caché del Sistema
+### 2. Actualizar la Caché del Sistema (Opcional)
 
 Es necesario limpiar la caché de vistas de Laravel para que el sistema reconozca la nueva estructura de directorios.
 
