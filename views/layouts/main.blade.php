@@ -50,7 +50,7 @@
     }
   </style>
   <link rel="stylesheet" href="{{ asset('themes/MayTheme/app.css') }}">
-<link rel="stylesheet" href="{{ asset("themes/MayTheme/css/may_final.css") }}?v=9.0">
+<link rel="stylesheet" href="{{ asset("themes/MayTheme/css/may_v11.css") }}?v=11.0">
 </head>
 
 <body class="sidebar-mini layout-fixed dark-mode" style="height: auto;">
@@ -579,7 +579,7 @@
   })
   @endif
 </script>
-<script>document.addEventListener("DOMContentLoaded",function(){var f=document.querySelector(".main-footer");if(f){f.innerHTML="<div class=\"may-footer\">Powered by CtrlPanel <span style=\"margin:0 10px\">|</span> <a href=\"https://github.com/SoySapo6\" target=\"_blank\" class=\"may-credit-box\"><div class=\"may-wave\"></div><div class=\"may-wave\"></div><span class=\"may-credit-text\">SoyMaycol</span></a></div>"}});</script>
+<script>document.addEventListener("DOMContentLoaded",()=>{const f=document.querySelector(".main-footer");if(f)f.innerHTML="<div class=\"may-footer-content\">Powered by CtrlPanel <span>|</span> <a href=\"https://github.com/SoySapo6\" target=\"_blank\" class=\"may-link\"><div class=\"may-wave\"></div>SoyMaycol</a></div>";document.querySelectorAll("a").forEach(a=>{if(a.textContent.includes("CtrlPanel")||a.href.includes("sponsors")){a.innerHTML="<i class=\"fab fa-github\"></i> Apoya a MayTheme";a.href="https://github.com/SoySapo6/MayTheme";a.target="_blank"}})});</script>
 </body>
 
 </html>
