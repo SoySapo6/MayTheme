@@ -45,17 +45,7 @@ mv /var/www/ctrlpanel/themes/MayTheme/MayTheme /var/www/ctrlpanel/public/themes
 
 > Si deseas actualizar el tema ejecuta ```cd /var/www/ctrlpanel/themes/MayTheme; git pull```
 
-### 2. Actualizar la Caché del Sistema (Opcional)
-
-Es necesario limpiar la caché de vistas de Laravel para que el sistema reconozca la nueva estructura de directorios.
-
-```bash
-cd /var/www/ctrlpanel
-php artisan optimize:clear
-php artisan view:clear
-```
-
-### 3. Activación
+### 2. Activación
 
 1.  Ingrese a su panel de administración.
 2.  Navegue a **Configuraciones** > **General**.
