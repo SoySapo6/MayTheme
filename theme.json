@@ -1,9 +1,9 @@
 {
-    "name": "MayTheme v11",
+    "name": "MayTheme v12",
     "title": "MayTheme • Tema para CtrlPanel",
     "description": "Tema definitivo animado alto rendimiento y fluido con animaciones y colores de blanco y negro",
     "parent": "default",
     "path": "themes/MayTheme",
-    "version": "11.0",
+    "version": "12.0",
     "author": "SoyMaycol"
 }
