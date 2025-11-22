@@ -28,6 +28,7 @@ El diseño elimina el ruido visual innecesario, priorizando la legibilidad y la 
 *   **Motor de Animaciones:** Transiciones CSS3 fluidas para elementos interactivos (hover, focus, modales).
 *   **Responsive Design:** Adaptación nativa corregida para viewports móviles sin colisiones de elementos.
 *   **Footer Dinámico:** Inyección de créditos mediante JavaScript para evitar conflictos con el motor de plantillas Blade.
+*   **Musica Integrada:** Si se detecta que en un motd contiene ```[REPRODUCE](https://ejemplo.com/cancion.mp3)``` se reproducira la musica automáticamente.
 
 ## Instalación
 
