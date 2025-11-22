@@ -2,7 +2,7 @@
   <img src="https://dash.nefu.life/storage/icon.png" width="220" alt="MayHost Logo">
 </p>
 
-<h1 align="center">MayTheme v11</h1>
+<h1 align="center">MayTheme v12</h1>
 
 <p align="center">
   <strong>Interfaz visual de alto rendimiento para CtrlPanel.gg</strong><br>
