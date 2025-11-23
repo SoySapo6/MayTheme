@@ -67,17 +67,9 @@
         </li>
       @endforeach
 
-      <li class="nav-item">
-        <span class="px-2 nav-link">
-          <span class="mr-1 text-gray-600 d-lg-inline">
-            <small><i class="mr-2 fas fa-coins"></i></small>{{ Currency::formatForDisplay(Auth::user()->credits) }}
-          </span>
-        </span>
-      </li>
-
       <li class="nav-item d-none d-sm-inline-block">
         <span class="nav-link">
-          <span class="font-weight-bold" style="font-size: 1.1rem;">{{ Auth::user()->name }}</span>
+            <span class="brand-text font-weight-light" style="font-size: 1.5rem;">{{ config('app.name', 'MayHost') }}</span>
         </span>
       </li>
     </ul>
@@ -95,13 +87,17 @@
     </ul>
   </nav>
   <aside class="main-sidebar sidebar-open sidebar-dark-primary elevation-4">
-    <a href="{{ route('home') }}" class="brand-link">
-      <img width="32" height="32"
-           src="{{ \Illuminate\Support\Facades\Storage::disk('public')->exists('icon.png') ? asset('storage/icon.png') : asset('images/ctrlpanel_logo.png') }}"
-           alt="{{ config('app.name', 'Laravel') }} Logo" class="brand-image img-circle"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light" style="font-size: 1rem;">{{ config('app.name', 'CtrlPanel.gg') }}</span>
-    </a>
+    <div class="brand-link">
+      <div class="user-panel d-flex">
+        <div class="info">
+          <span class="d-block font-weight-bold text-white"
+                style="font-size: 1.2rem;">{{ Auth::user()->name }}</span>
+          <span class="d-block text-white">
+            <i class="fas fa-coins mr-2"></i>{{ Currency::formatForDisplay(Auth::user()->credits) }}
+          </span>
+        </div>
+      </div>
+    </div>
 
     <div class="sidebar" style="overflow-y: auto">
 
@@ -177,14 +173,6 @@
                class="nav-link @if (Request::routeIs('preferences.index')) active @endif">
               <i class="nav-icon fa fa-cog"></i>
               <p>{{ __('Preferences') }}</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('store.index') }}"
-               class="nav-link @if (Request::routeIs('store.*')) active @endif">
-              <i class="nav-icon fa fa-coins"></i>
-              <p>{{ __('Store') }}</p>
             </a>
           </li>
 
