@@ -44,7 +44,7 @@
     }
   </style>
   <link rel="stylesheet" href="{{ asset('themes/MayTheme/app.css') }}">
-<link rel="stylesheet" href="{{ asset("themes/MayTheme/css/may.css") }}?v=11.0">
+  <link rel="stylesheet" href="{{ asset('themes/MayTheme/css/may.css') }}">
 </head>
 
 <body class="sidebar-mini layout-fixed dark-mode" style="height: auto;">
@@ -68,9 +68,14 @@
       @endforeach
 
       <li class="nav-item d-none d-sm-inline-block">
-        <span class="nav-link">
-            <span class="brand-text font-weight-light" style="font-size: 1.5rem;">{{ config('app.name', 'MayHost') }}</span>
-        </span>
+        <a href="{{ route('home') }}" class="nav-link">
+          <img
+            src="{{ \Illuminate\Support\Facades\Storage::disk('public')->exists('logo.png') ? asset('storage/logo.png') : asset('images/ctrlpanel_logo.png') }}"
+            alt="{{ config('app.name', 'Ctrlpanel.gg') }} Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: .8; height: 25px; margin-right: 5px;">
+          <span class="brand-text font-weight-light">{{ config('app.name', 'MayHost') }}</span>
+        </a>
       </li>
     </ul>
 
@@ -79,7 +84,7 @@
       <li class="nav-item">
         <form method="post" action="{{ route('logout') }}" class="d-inline">
           @csrf
-          <button class="nav-link btn btn-link" style="padding-top: 6px; padding-bottom: 6px;">
+          <button class="nav-link btn btn-link" title="{{ __('Logout') }}">
             <i class="fas fa-sign-out-alt"></i>
           </button>
         </form>
@@ -90,8 +95,7 @@
     <div class="brand-link">
       <div class="user-panel d-flex">
         <div class="info">
-          <span class="d-block font-weight-bold text-white"
-                style="font-size: 1.2rem;">{{ Auth::user()->name }}</span>
+          <span class="d-block font-weight-bold text-white">{{ Auth::user()->name }}</span>
           <span class="d-block text-white">
             <i class="fas fa-coins mr-2"></i>{{ Currency::formatForDisplay(Auth::user()->credits) }}
           </span>
@@ -145,7 +149,7 @@
             @endcanany
           @endif
 
-          <li class="nav-header">{{ __('Account') }}</li>
+          <li class="nav-header">{{ __('Cuenta') }}</li>
 
           <li class="nav-item">
             <a href="{{ route('profile.index') }}"
