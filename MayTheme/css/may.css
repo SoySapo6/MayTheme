@@ -18,11 +18,13 @@ h1, h2, h3, .brand-text { font-weight: 800 !important; letter-spacing: -0.5px; }
 background-color: var(--may-sidebar) !important;
 border-right: 1px solid #222 !important;
 box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+transition: all 0.3s ease-in-out;
 }
 .brand-link {
 background-color: var(--may-sidebar) !important;
 border-bottom: 1px solid #222 !important;
 padding: 20px 15px !important;
+transition: all 0.3s ease-in-out;
 }
 .nav-sidebar .nav-link {
 margin: 5px 10px;
@@ -39,6 +41,7 @@ box-shadow: 0 0 10px rgba(255,255,255,0.3);
 .nav-sidebar .nav-link:hover {
 color: #fff !important;
 background: rgba(255,255,255,0.05);
+transform: translateX(5px);
 }
 .navbar {
 background: rgba(5,5,5,0.95) !important;
@@ -53,6 +56,11 @@ border-radius: 16px !important;
 box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 margin-bottom: 20px !important;
 overflow: hidden;
+transition: all 0.3s ease-in-out;
+}
+.card:hover, .info-box:hover, .small-box:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
 }
 .login-card-body, .register-card-body {
 background-color: var(--may-card) !important;
@@ -81,6 +89,8 @@ display: inline-block;
 background-color: #fff !important;
 color: #000 !important;
 border-color: #fff !important;
+transform: translateY(-2px);
+box-shadow: 0 6px 0 #333;
 }
 .btn-block { width: 100%; }
 input, select, textarea, .form-control {
@@ -137,6 +147,22 @@ border-radius: 12px !important;
 }
 ::-webkit-scrollbar { width: 6px; background: #000; }
 ::-webkit-scrollbar-thumb { background: #fff; border-radius: 3px; }
+.navbar-nav .nav-link {
+  transition: all 0.3s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+  transform: scale(1.1);
+}
+.nav-item .nav-link p:contains('Preferences'):after {
+  content: 'Preferencias';
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  vertical-align: top;
+}
 @media (max-width: 768px) {
 .content-wrapper { padding: 10px !important; }
 .card { border-radius: 12px !important; margin-bottom: 15px !important; }
