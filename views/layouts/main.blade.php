@@ -44,88 +44,73 @@
     }
   </style>
   <link rel="stylesheet" href="{{ asset('themes/MayTheme/app.css') }}">
-<link rel="stylesheet" href="{{ asset("themes/MayTheme/css/may.css") }}?v=11.0">
+  <link rel="stylesheet" href="{{ asset('themes/MayTheme/css/may.css') }}?v={{ config('app.version') }}">
 </head>
 
 <body class="sidebar-mini layout-fixed dark-mode" style="height: auto;">
 <div class="wrapper">
-  <nav class="main-header sticky-top navbar navbar-expand navbar-dark navbar-light">
+  <nav class="main-header sticky-top navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-            class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('home') }}" class="nav-link"><i
-            class="mr-2 fas fa-home"></i>{{ __('Home') }}</a>
-      </li>
-
-      @foreach ($useful_links as $link)
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ $link->link }}" class="nav-link" target="__blank"><i
-              class="{{ $link->icon }}"></i> {{ $link->title }}</a>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-      @endforeach
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('home') }}" class="nav-link">Home</a>
+        </li>
     </ul>
 
-    <ul class="ml-auto navbar-nav">
-      <li class="nav-item">
-        <a href="{{ route('home') }}" class="nav-link">
-          <img width="32" height="32"
-               src="{{ \Illuminate\Support\Facades\Storage::disk('public')->exists('icon.png') ? asset('storage/icon.png') : asset('images/ctrlpanel_logo.png') }}"
-               alt="{{ config('app.name', 'Laravel') }} Logo" class="brand-image img-circle"
-               style="opacity: .8">
-          <span class="brand-text font-weight-light">{{ config('app.name', 'CtrlPanel.gg') }}</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="mr-1 text-gray-600 d-lg-inline">
-              <small><i class="mr-2 fas fa-coins"></i></small>{{ Currency::formatForDisplay(Auth::user()->credits) }}
-          </span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="mr-1 text-gray-600 d-lg-inline small">
-              {{ Auth::user()->name }}
-          </span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <form method="post" action="{{ route('logout') }}">
-          @csrf
-          <button class="btn btn-link nav-link" type="submit">
-            <i class="fas fa-sign-out-alt"></i>
-          </button>
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        </form>
-      </li>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                Cuenta
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="{{ route('notifications.index') }}" class="dropdown-item">
+                    <i class="fas fa-bell mr-2"></i> Notificaciones
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('profile.index') }}" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> Perfil
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('preferences.index') }}" class="dropdown-item">
+                    <i class="fas fa-cog mr-2"></i> Preferencias
+                </a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
     </ul>
-  </nav>
-  <aside class="main-sidebar sidebar-open sidebar-dark-primary elevation-4">
-    <a href="{{ route('home') }}" class="brand-link">
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+</nav>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('storage/avatars/' . Auth::user()->avatar) }}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ asset('storage/avatars/' . Auth::user()->avatar) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-          <small><i class="mr-2 fas fa-coins"></i></small>{{ Currency::formatForDisplay(Auth::user()->credits) }}
+            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+            <small class="text-white"><i class="fas fa-coins mr-1"></i>{{ Currency::formatForDisplay(Auth::user()->credits) }}</small>
         </div>
-      </div>
-    </a>
+    </div>
 
+    <!-- Sidebar -->
     <div class="sidebar" style="overflow-y: auto">
 
-      <nav class="my-2">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
             data-accordion="false">
           <li class="nav-item">
             <a href="{{ route('home') }}"
                class="nav-link @if (Request::routeIs('home')) active @endif">
               <i class="nav-icon fa fa-home"></i>
-              <p>{{ __('Dashboard') }}</p>
+              <p>Panel de control</p>
             </a>
           </li>
 
@@ -133,7 +118,7 @@
             <a href="{{ route('servers.index') }}"
                class="nav-link @if (Request::routeIs('servers.*')) active @endif">
               <i class="nav-icon fa fa-server"></i>
-              <p>{{ __('Servers') }}
+              <p>Servidores
                 <span class="badge badge-info right">{{ Auth::user()->servers()->count() }} /
                                         {{ Auth::user()->server_limit }}</span>
               </p>
@@ -147,34 +132,33 @@
                 <a href="{{ route('ticket.index') }}"
                    class="nav-link @if (Request::routeIs('ticket.*')) active @endif">
                   <i class="nav-icon fas fa-ticket-alt"></i>
-                  <p>{{ __('Support Ticket') }}</p>
+                  <p>Ticket de Soporte</p>
                 </a>
               </li>
             @endcanany
           @endif
 
-          <li class="nav-header">{{ __('Cuenta') }}</li>
           <li class="nav-item">
-           <a href="{{ route('notifications.index') }}"
-           class="nav-link @if (Request::routeIs('notifications.*')) active @endif">
-           <i class="nav-icon fa fa-bell"></i>
-          <p>{{ __('Notificaciones') }}</p>
-          </a>
-          </li>
+            <a href="{{ route('store.index') }}" class="nav-link @if (Request::routeIs('store.*')) active @endif">
+                <i class="nav-icon fas fa-shopping-basket"></i>
+                <p>Tienda</p>
+            </a>
+           </li>
           <li class="nav-item">
-           <a href="/profile"
-           class="nav-link @if (Request::routeIs('profile.*')) active @endif">
-           <i class="nav-icon fa fa-user"></i>
-          <p>{{ __('Perfil') }}</p>
-          </a>
+            <a class="nav-link" data-toggle="modal" data-target="#redeemVoucherModal"
+               href="javascript:void(0)">
+              <i class="nav-icon fas fa-money-check-alt"></i>
+              <p>Canjear código</p>
+            </a>
           </li>
-          <li class="nav-item">
-           <a href="/preferences"
-           class="nav-link @if (Request::routeIs('preferences.*')) active @endif">
-           <i class="nav-icon fa fa-cog"></i>
-          <p>{{ __('Preferencias') }}</p>
-          </a>
-          </li>
+          @if (session()->get('previousUser'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('users.logbackin') }}">
+                <i class="nav-icon fas fa-sign-in-alt"></i>
+                <p>Volver a iniciar sesión</p>
+              </a>
+            </li>
+          @endif
 
           @canany(array_merge(
               PermissionGroups::TICKET_PERMISSIONS,
@@ -392,6 +376,29 @@
     @yield('content')
 
     @include('modals.redeem_voucher_modal')
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Ready to Leave?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Select "Logout" below if you are ready to end your current session.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-primary">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
   <footer class="main-footer">
     <strong>Copyright &copy; 2021-{{ date('Y') }} <a
