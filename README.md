@@ -61,7 +61,7 @@ Este tema utiliza como base estructural el tema **BlueInfinity** para garantizar
 *   **Organización:** MayHost
 *   **Base:** BlueInfinity Theme
 
-> (MIT LICENCE) No puedes eliminar los creditos del creador en el codigo o de lo contrario sera declamado.
+> (MIT LICENCE) No puedes eliminar los creditos del creador en el codigo a partir de la versión v13 o de lo contrario sera declamado.
 
 ---
 
