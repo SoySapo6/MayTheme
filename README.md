@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://dash.nefu.life/storage/icon.png" width="220" alt="MayHost Logo">
+  <img src="https://dash.soymaycol.icu/storage/icon.png" width="220" alt="MayHost Logo">
 </p>
 
 <h1 align="center">MayTheme v12</h1>
@@ -60,6 +60,8 @@ Este tema utiliza como base estructural el tema **BlueInfinity** para garantizar
 *   **Desarrollador Principal:** SoyMaycol
 *   **Organización:** MayHost
 *   **Base:** BlueInfinity Theme
+
+> (MIT LICENCE) No puedes eliminar los creditos del creador en el codigo o de lo contrario sera declamado.
 
 ---
 
